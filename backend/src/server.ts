@@ -1,11 +1,22 @@
-import { createApp } from "./app";
-import dotenv from "dotenv";
+import "reflect-metadata";
+import { createExpressServer } from "routing-controllers";
+import { connectToMongo } from "./config/mongo";
+import { TestController } from "./controllers/TestController";
 
-dotenv.config();
+const PORT = 4000;
 
-const PORT = process.env.PORT || 4000;
-const app = createApp();
+const bootstrap = async () => {
+    await connectToMongo();
 
-app.listen(PORT, () => {
-    console.log(`🚀 Backend server is running on http://localhost:${PORT}`);
+    const app = createExpressServer({
+        controllers: [TestController],
+    });
+
+    app.listen(PORT, () => {
+        console.log(`🚀 Backend server is running on http://localhost:${PORT}`);
+    });
+};
+
+bootstrap().catch((err) => {
+    console.error("Error starting server:", err);
 });
