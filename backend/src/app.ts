@@ -1,9 +1,10 @@
+// src/app.ts
 import "reflect-metadata";
 import express from "express";
 import { useExpressServer } from "routing-controllers";
 import path from "path";
 
-export function createApp() {
+export async function createApp() {
     const app = express();
 
     app.use(express.json());
