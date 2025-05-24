@@ -1,0 +1,35 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+env/
+ENV/
+.venv/
+
+# VSCode settings
+.vscode/
+
+# MacOS
+.DS_Store
+
+# Test coverage
+htmlcov/
+.coverage
+coverage.xml
+
+# Pytest cache
+.pytest_cache/
+
+# Transcription/temp outputs (if any)
+*.log
+*.tmp
+*.temp
+*.mp4
+*.wav
+
+# Local config files
+*.env
+.env.*
