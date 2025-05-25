@@ -22,7 +22,6 @@ async function bootstrap() {
 
         try {
             const transcription = await transcribeVideo(videoFile.path, videoFile.originalname);
-            console.log(transcription, 'trans');
             const { title, segments, duration } = transcription;
 
             const videosCollection = getDb().collection("videos");

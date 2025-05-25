@@ -17,7 +17,7 @@ async def transcribe(file: UploadFile = File(...),fileName: str = Form(None)):
 @app.post("/generate-mcq")
 async def generate_mcq(segment: Segment):
     mcq = generate_mcqs_from_text(segment.text)
-    return {"mcq": mcq}
+    return {"mcqs": mcq}
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
